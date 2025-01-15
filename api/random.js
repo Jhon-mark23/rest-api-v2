@@ -36,17 +36,12 @@ exports.initialize = async function ({ req, res }) {
       res.json({  
         details: {
           random,
-          
-        },
-        videoPath, // Path to the saved video
-        status: 200
+          },
+        
       });
     });
 
-    writer.on("error", (err) => {
-      console.error("Error saving video:", err.message);
-      res.json({ message: "Error downloading the video", status: 500 });
-    });
+    
   } catch (error) {
     console.error("Error:", error.message);
     res.json({ message: "Error fetching video data", status: 500 });
